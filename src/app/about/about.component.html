@@ -1,0 +1,55 @@
+<app-nav>
+</app-nav>
+
+<main>
+  <a
+  routerLink="/contact"
+>
+  Navigate to Contact
+</a>
+  <sky-fluid-grid>
+    <sky-row>
+      <sky-column>
+        <h1>
+          About our Team
+        </h1>
+        <p>
+          This page provides contact information for members of our team.
+        </p>
+        <sky-alert alertType="info">
+          <strong>Note:</strong> There may be a delay in responding to your email.
+        </sky-alert>
+        <sky-card>
+          <sky-card-title>Large card</sky-card-title>
+          <sky-card-content>
+            This card demonstrates the amount of space that is available for a card that uses
+            the default large size. If the content does not require this much space, you can
+            set the card size to small. The type of content to display in the body of a card
+            varies based on what the card represents and whether it prompts users to action.
+            The content can consist of some combination of a graph, trend, status, summary
+            information, and guidance text.
+          </sky-card-content>
+          <sky-card-actions>
+            <button class="sky-btn sky-btn-default">Click me</button>
+          </sky-card-actions>
+        </sky-card>
+        <ng-container *ngFor="let member of team">
+
+          <sky-avatar [name]="member.name"></sky-avatar>
+
+          <sky-key-info [layout]="'horizontal'">
+            <sky-key-info-value>
+              {{ member.name }}
+            </sky-key-info-value>
+            <sky-key-info-label>
+              <a href="mailto:{{ member.email }}">
+                {{ member.email }}
+              </a>
+            </sky-key-info-label>
+          </sky-key-info>
+
+        </ng-container>
+      </sky-column>
+    </sky-row>
+  </sky-fluid-grid>
+</main>

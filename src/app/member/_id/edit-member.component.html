@@ -1,0 +1,40 @@
+<form [formGroup]="form">
+    <div class="sky-form-group" style="max-width: 50%">
+        <label for="name" class="sky-control-label">
+        Name
+        </label>
+        <input formControlName="Name" class="sky-form-control" id="name" type="text">
+        <div *ngIf="Name?.invalid && (Name?.dirty || Name?.touched)" class="sky-error-label">
+            Name is required
+        </div>
+    </div>
+    <div class="sky-form-group" style="max-width: 50%">
+        <label for="email" class="sky-control-label">
+        Email
+        </label>
+        <input formControlName="Email" class="sky-form-control" id="email" type="text">
+        <div *ngIf="Email?.invalid && (Email?.dirty || Email?.touched)" class="sky-error-label">
+            Email is required
+        </div>
+    </div>
+    <div class="sky-form-group" style="max-width: 50%">
+        <label for="amount" class="sky-control-label">
+        Amount
+        </label>
+        <input formControlName="Amount" class="sky-form-control" id="amount" type="number">
+        <div *ngIf="Amount?.invalid && (Amount?.dirty || Amount?.touched)" class="sky-error-label">
+            Amount is required
+        </div>
+    </div>
+    <div class="sky-form-group" style="max-width: 50%">
+        <label for="status" class="sky-control-label">
+        Status
+        </label>
+        <input formControlName="Status" class="sky-form-control" id="status" type="text">
+        <div *ngIf="Status?.invalid && (Status?.dirty || Status?.touched)" class="sky-error-label">
+            Status is required
+        </div>
+    </div>
+    <button [disabled]="!this.form.valid" class="sky-btn sky-btn-primary" (click)="SaveMember()">Save</button>
+    <button class="sky-btn sky-btn-default" (click)="OnClickCancel()">Cancel</button>
+</form>

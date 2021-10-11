@@ -1,0 +1,30 @@
+
+<main>
+    <sky-toolbar>
+        <sky-toolbar-item>
+          <button
+            (click)="NavigateToAddMember()"
+            class="sky-btn sky-btn-primary"
+            type="button"
+          >
+          <sky-icon
+              icon="plus-circle"
+              size="sm"
+          ></sky-icon>
+            Add Member
+          </button>
+        </sky-toolbar-item>
+    </sky-toolbar>
+    <div style='width: 100%; height: 800px; display: flex; flex-direction: column;'>
+      <ag-grid-angular
+          style="width: 100%; height: 100%;"
+          class="ag-theme-alpine"
+          [columnDefs]="columnDefs"
+          [rowData]="rowData"
+          [frameworkComponents]="frameworkComponents"
+          (gridReady)="onGridReady($event)"
+          [editType]="'fullRow'"
+      >
+      </ag-grid-angular>
+      </div>
+</main>
