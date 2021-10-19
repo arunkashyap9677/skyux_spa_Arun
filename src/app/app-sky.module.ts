@@ -6,6 +6,7 @@ import {
 import {
   SkyAvatarModule
 } from '@skyux/avatar';
+import { SkyRadioModule } from '@skyux/forms';
 import { SkyGridModule } from '@skyux/grids';
 
 import {
@@ -24,6 +25,7 @@ import { SkyConfirmModule } from '@skyux/modals';
 import {
   SkyNavbarModule
 } from '@skyux/navbar';
+import { SkyDropdownModule } from '@skyux/popovers';
 import { SkyAppLinkModule } from '@skyux/router';
 import { SkyThemeModule } from '@skyux/theme';
 import { SkyToastModule } from '@skyux/toast';
@@ -43,7 +45,9 @@ import { SkyToastModule } from '@skyux/toast';
     SkyIconModule,
     SkyThemeModule,
     SkyToastModule,
-    SkyConfirmModule
+    SkyConfirmModule,
+    SkyDropdownModule,
+    SkyRadioModule
   ]
 })
 export class AppSkyModule { }

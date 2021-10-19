@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form autocomplete="off" [formGroup]="form">
     <div class="sky-form-group" style="max-width: 50%">
         <label for="name" class="sky-control-label">
         Name
@@ -34,6 +34,34 @@
         <div *ngIf="Status?.invalid && (Status?.dirty || Status?.touched)" class="sky-error-label">
             Status is required
         </div>
+    </div>
+    <div class="sky-form-group" style="max-width: 50%">
+        <sky-radio-group
+        formControlName="Gender">
+            <ul class="sky-list-unstyled">
+            <li>
+                <sky-radio value="male">
+                <sky-radio-label>
+                    Male
+                </sky-radio-label>
+                </sky-radio>
+            </li>
+            <li>
+                <sky-radio value="female">
+                    <sky-radio-label>
+                    Female
+                    </sky-radio-label>
+                </sky-radio>
+            </li>
+            <li>
+                <sky-radio value="other">
+                    <sky-radio-label>
+                    Other
+                    </sky-radio-label>
+                </sky-radio>
+            </li>
+            </ul>
+        </sky-radio-group>
     </div>
     <button [disabled]="!this.form.valid" class="sky-btn sky-btn-primary" (click)="SaveMember()">Add</button>
     <button class="sky-btn sky-btn-default" (click)="OnClickCancel()">Cancel</button>

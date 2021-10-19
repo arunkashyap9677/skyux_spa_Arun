@@ -11,11 +11,13 @@ import { MemberService } from '../../shared/services/member.service';
   styleUrls: ['./add-member.component.scss']
 })
 export class AddMemberComponent implements OnInit {
+  public DefaultValue: boolean = true;
   public form = new FormGroup({
     Name : new FormControl('', Validators.required),
     Email : new FormControl('', Validators.required),
     Amount : new FormControl('', Validators.required),
-    Status : new FormControl('', Validators.required)
+    Status : new FormControl('', Validators.required),
+    Gender : new FormControl('', Validators.required)
   });
 
   private member: Member = {
@@ -23,7 +25,8 @@ export class AddMemberComponent implements OnInit {
     name : '',
     email: '',
     amount: 0,
-    status: ''
+    status: '',
+    gender: ''
   };
 
   constructor(private _memberService: MemberService, private router: Router, private _toast: SkyToastService) { }
@@ -48,11 +51,16 @@ export class AddMemberComponent implements OnInit {
     return this.form.get('Status');
   }
 
+  get Gender() {
+    return this.form.get('Gender');
+  }
+
   public SaveMember() {
     this.member.name = this.form.get('Name').value;
     this.member.email = this.form.get('Email').value;
     this.member.status = this.form.get('Status').value;
     this.member.amount = this.form.get('Amount').value;
+    this.member.gender = this.form.get('Gender').value;
     console.log(this.member);
     this._memberService.AddMember(this.member)
                         .subscribe(resp => {

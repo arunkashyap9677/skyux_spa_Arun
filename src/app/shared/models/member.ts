@@ -4,4 +4,5 @@ export interface Member {
     amount: number;
     status: string;
     id: number;
+    gender: string
 }

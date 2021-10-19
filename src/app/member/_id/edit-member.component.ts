@@ -26,7 +26,8 @@ export class EditMemberComponent implements OnInit {
     name : '',
     email: '',
     amount: 0,
-    status: ''
+    status: '',
+    gender: ''
   };
   constructor(private _memberService: MemberService, private router: Router, private _toast: SkyToastService) { }
 

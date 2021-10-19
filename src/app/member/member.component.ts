@@ -20,7 +20,7 @@ export class MemberComponent implements OnInit {
   public rowData: Member[];
 
   public columnDefs: ColDef[] = [
-    { field: 'name', width: 100 },
+    { field: 'name', width: 100, valueFormatter: this.NameFormatter },
     { field: 'email', width: 100  },
     { field: 'amount', width: 100, type: ['rightAligned', 'numericColumn'] },
     { field: 'status', width: 100 },
@@ -84,6 +84,7 @@ export class MemberComponent implements OnInit {
     this._memberService.GetMembers()
     .subscribe(resp => {
       this.rowData = resp as Member[];
+      console.log('logging rowData');
     });
   }
 
@@ -104,6 +105,14 @@ export class MemberComponent implements OnInit {
         this.DeleteMember(params);
       }
     });
+  }
+
+  public NameFormatter(params: any){
+    if(params.data.gender === 'male')
+      return 'Mr. ' + params.value;
+    else if(params.data.gender === 'female')
+      return 'Ms. ' +params.value;
+    return params.value;
   }
 
     /*public data: Member[] = [
